@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adstera Smartlink Earning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --warning: #f8961e;
+            --dark: #1d3557;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --border: #dee2e6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background-color: white;
+            border-radius: 15px 15px 0 0;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 0;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0 0 15px 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        input[type="text"], input[type="url"], textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input[type="text"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        textarea {
+            height: 120px;
+            resize: vertical;
+            font-family: monospace;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-group input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #3ab0d9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.3);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #e11574;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(247, 37, 133, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .status {
+            padding: 15px;
+            background-color: #fff9e6;
+            border-left: 5px solid var(--warning);
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        
+        .status-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .random-toggle {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            margin: 0 15px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray);
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--success);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+        
+        .ua-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            background-color: white;
+            margin-top: 10px;
+        }
+        
+        .ua-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 5px;
+        }
+        
+        .ua-item:hover {
+            background-color: #e9ecef;
+        }
+        
+        .ua-item:last-child {
+            border-bottom: none;
+        }
+        
+        .progress-container {
+            margin-top: 20px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--success);
+            width: 0%;
+            transition: width 0.5s;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        
+        .info-text {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .link-preview {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e7f1ff;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .link-preview i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-ad"></i> Adstera Smartlink Earning</h1>
+            <div class="subtitle">Get SOUNDS - Maximize Your Earnings with Smartlink Technology</div>
+        </header>
+        
+        <div class="card">
+            <div class="section">
+                <div class="section-title"><i class="fas fa-cogs"></i> Legal Abit Configuration</div>
+                
+                <div class="form-group">
+                    <label for="target-url"><i class="fas fa-link"></i> Masukkan Situs Tujuan</label>
+                    <input type="url" id="target-url" placeholder="https://sokinfo.webnode.com/">
+                    <div class="info-text">Pastikan URL tujuan sudah benar dan aktif</div>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-random"></i> Random UA</label>
+                    <div class="random-toggle">
+                        <span>Manual</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="random-ua-toggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Otomatis</span>
+                    </div>
+                    <div class="info-text">Pilih mode Otomatis untuk mengacak User Agent secara otomatis</div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="save-btn" class="btn-success"><i class="fas fa-save"></i> SAVE/START</button>
+                    <button id="reset-btn" class="btn-outline"><i class="fas fa-redo"></i> RESET</button>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title"><i class="fas fa-mobile-alt"></i> Module/S.O (IPsd touch): GPU IPhone OS</div>
+                
+                <div class="form-group">
+                    <label for="user-agent"><i class="fas fa-code"></i> User Agent</label>
+                    <textarea id="user-agent">Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-list"></i> User Agent List</label>
+                    <div class="ua-list" id="ua-list">
+                        <!-- User Agent items will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="max-target"><i class="fas fa-bullseye"></i> Max Target</label>
+                    <input type="text" id="max-target" placeholder="1000">
+                    <div class="info-text">Masukkan jumlah target maksimal untuk proses ini</div>
+                </div>
+                
+                <button id="save-settings" class="btn-primary"><i class="fas fa-check-circle"></i> SIMPAN</button>
+            </div>
+            
+            <div class="section">
+                <div class="section-title"><i class="fas fa-chart-line"></i> Process Status & Statistics</div>
+                
+                <div class="status">
+                    <div class="status-title"><i class="fas fa-clock"></i> Pending Process (a)</div>
+                    <div id="status-message">Menunggu untuk memulai proses...</div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" id="progress-bar"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span>Progress</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="completed-count">0</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="pending-count">0</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="success-rate">0%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="earnings">$0.00</div>
+                        <div class="stat-label">Estimated Earnings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Adstera Smartlink Earning Tool &copy; 2023 | Designed for Optimal Ad Performance</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const randomUAToggle = document.getElementById('random-ua-toggle');
+            const saveBtn = document.getElementById('save-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const saveSettingsBtn = document.getElementById('save-settings');
+            const userAgentTextarea = document.getElementById('user-agent');
+            const targetUrlInput = document.getElementById('target-url');
+            const maxTargetInput = document.getElementById('max-target');
+            const statusMessage = document.getElementById('status-message');
+            const uaList = document.getElementById('ua-list');
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+            const completedCount = document.getElementById('completed-count');
+            const pendingCount = document.getElementById('pending-count');
+            const successRate = document.getElementById('success-rate');
+            const earnings = document.getElementById('earnings');
+            
+            // User Agent List
+            const userAgents = [
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Mobile/15E148 Safari/604.1",
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1",
+                "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36",
+                "Mozilla/5.0 (Linux; Android 9; SM-G960F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36",
+                "Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36",
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/85.0.4183.109 Mobile/15E148 Safari/604.1",
+                "Mozilla/5.0 (iPad; CPU OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1"
+            ];
+            
+            // Process variables
+            let processInterval;
+            let completed = 0;
+            let pending = 0;
+            let totalTarget = 0;
+            let isRunning = false;
+            
+            // Populate UA list
+            function populateUAList() {
+                uaList.innerHTML = '';
+                userAgents.forEach((ua, index) => {
+                    const uaItem = document.createElement('div');
+                    uaItem.className = 'ua-item';
+                    uaItem.textContent = ua;
+                    uaItem.addEventListener('click', function() {
+                        userAgentTextarea.value = ua;
+                        statusMessage.textContent = `User Agent #${index + 1} dipilih`;
+                    });
+                    uaList.appendChild(uaItem);
+                });
+            }
+            
+            // Initialize
+            populateUAList();
+            
+            // Random UA Toggle
+            randomUAToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    statusMessage.textContent = 'Mode Random UA aktif - User Agent akan diacak secara otomatis';
+                } else {
+                    statusMessage.textContent = 'Mode Manual - Pilih User Agent secara manual';
+                }
+            });
+            
+            // Save/Start Button
+            saveBtn.addEventListener('click', function() {
+                const targetUrl = targetUrlInput.value.trim();
+                
+                if (!targetUrl) {
+                    alert('Masukkan URL tujuan terlebih dahulu!');
+                    targetUrlInput.focus();
+                    return;
+                }
+                
+                let selectedUA = userAgentTextarea.value;
+                
+                // If random UA is enabled, select a random UA
+                if (randomUAToggle.checked) {
+                    const randomIndex = Math.floor(Math.random() * userAgents.length);
+                    selectedUA = userAgents[randomIndex];
+                    userAgentTextarea.value = selectedUA;
+                    statusMessage.textContent = `User Agent diacak: ${selectedUA.substring(0, 50)}...`;
+                }
+                
+                // Get max target
+                totalTarget = parseInt(maxTargetInput.value) || 100;
+                pending = totalTarget;
+                completed = 0;
+                
+                updateStats();
+                
+                // Start process simulation
+                if (isRunning) {
+                    clearInterval(processInterval);
+                    statusMessage.textContent = 'Proses dihentikan';
+                    saveBtn.innerHTML = '<i class="fas fa-play"></i> START';
+                    isRunning = false;
+                } else {
+                    statusMessage.textContent = `Proses dimulai dengan User Agent: ${selectedUA.substring(0, 50)}...`;
+                    saveBtn.innerHTML = '<i class="fas fa-stop"></i> STOP';
+                    isRunning = true;
+                    
+                    // Simulate process
+                    processInterval = setInterval(() => {
+                        if (completed < totalTarget) {
+                            completed++;
+                            pending = totalTarget - completed;
+                            
+                            // Random success/failure
+                            const isSuccess = Math.random() > 0.2; // 80% success rate
+                            
+                            updateStats();
+                            
+                            // Update progress bar
+                            const progress = (completed / totalTarget) * 100;
+                            progressBar.style.width = `${progress}%`;
+                            progressPercent.textContent = `${Math.round(progress)}%`;
+                            
+                            if (completed === totalTarget) {
+                                statusMessage.textContent = 'Proses selesai! Semua target telah diproses.';
+                                clearInterval(processInterval);
+                                saveBtn.innerHTML = '<i class="fas fa-play"></i> START';
+                                isRunning = false;
+                            }
+                        }
+                    }, 100);
+                }
+            });
+            
+            // Reset Button
+            resetBtn.addEventListener('click', function() {
+                targetUrlInput.value = '';
+                userAgentTextarea.value = userAgents[0];
+                randomUAToggle.checked = false;
+                maxTargetInput.value = '';
+                statusMessage.textContent = 'Menunggu untuk memulai...';
+                
+                // Reset progress
+                clearInterval(processInterval);
+                completed = 0;
+                pending = 0;
+                totalTarget = 0;
+                isRunning = false;
+                saveBtn.innerHTML = '<i class="fas fa-play"></i> START';
+                
+                updateStats();
+                progressBar.style.width = '0%';
+                progressPercent.textContent = '0%';
+            });
+            
+            // Save Settings Button
+            saveSettingsBtn.addEventListener('click', function() {
+                const maxTarget = maxTargetInput.value.trim();
+                
+                if (maxTarget) {
+                    statusMessage.textContent = `Pengaturan disimpan! Max Target: ${maxTarget}`;
+                } else {
+                    statusMessage.textContent = 'Pengaturan disimpan!';
+                }
+                
+                // Show success feedback
+                saveSettingsBtn.innerHTML = '<i class="fas fa-check"></i> DISIMPAN';
+                saveSettingsBtn.style.backgroundColor = '#28a745';
+                
+                setTimeout(() => {
+                    saveSettingsBtn.innerHTML = '<i class="fas fa-check-circle"></i> SIMPAN';
+                    saveSettingsBtn.style.backgroundColor = '';
+                }, 2000);
+            });
+            
+            // Update statistics
+            function updateStats() {
+                completedCount.textContent = completed;
+                pendingCount.textContent = pending;
+                
+                const rate = totalTarget > 0 ? (completed / totalTarget) * 100 : 0;
+                successRate.textContent = `${Math.round(rate)}%`;
+                
+                // Calculate estimated earnings (random for demo)
+                const estimated = (completed * 0.05).toFixed(2);
+                earnings.textContent = `$${estimated}`;
+            }
+            
+            // Add link preview functionality
+            targetUrlInput.addEventListener('blur', function() {
+                const url = this.value.trim();
+                if (url) {
+                    // In a real app, you might fetch the page title here
+                    statusMessage.textContent = `URL tujuan disetel: ${url}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
